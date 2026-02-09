@@ -1,0 +1,28 @@
+<section class="users-details-container">
+  <div class="back">
+    <button mat-icon-button (click)="goBack()" aria-label="Back to list">
+      <mat-icon fontIcon="arrow_back"></mat-icon>
+    </button>
+  </div>
+
+  <div class="card-detail">
+    @if (user(); as u) {
+      <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar [style.backgroundImage]="'url(' + u.avatar + ')'" class="header-image"></div>
+          <mat-card-title>{{ u.first_name }} {{ u.last_name }}</mat-card-title>
+          <mat-card-subtitle>User ID: {{ u.id }}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <img mat-card-image [src]="u.avatar" [alt]="u.first_name">
+        
+
+        <mat-card-actions>
+          <button mat-button color="primary">ADD CONTACT</button>
+        </mat-card-actions>
+      </mat-card>
+    } @else {
+      <p>Loading user details...</p>
+    }
+  </div>
+</section>

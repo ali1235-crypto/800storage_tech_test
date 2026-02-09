@@ -1,0 +1,22 @@
+.users-details-container {
+  .back {
+    padding: 20px;
+    button { cursor: pointer; }
+  }
+  
+  .card-detail {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    
+    .card {
+      width: 100%;
+      max-width: 400px; 
+      
+      .header-image {
+        background-size: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+}

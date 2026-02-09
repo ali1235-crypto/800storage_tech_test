@@ -1,0 +1,27 @@
+<section class="users-container">
+  <mat-selection-list class="list" [multiple]="false">
+    @for (user of users(); track user.id; let i = $index) {
+      <mat-list-item class="item" (click)="goToDetails(user.id)" animate.enter="enter-animation" [style.animation-delay]="i * 0.1 + 's'" >
+        <img matListItemAvatar [src]="user.avatar" alt="User Avatar">
+        <h3 matListItemTitle>{{ user.first_name }} {{ user.last_name }}</h3>
+        <p matListItemLine>
+          <span>User ID: {{ user.id }}</span>
+        </p>
+      </mat-list-item>
+    } @empty {
+      <p>No users found.</p>
+    }
+  </mat-selection-list>
+
+  <mat-paginator #paginator
+               class="demo-paginator"
+               (page)="handlePageEvent($event)"
+               [length]="length"
+               [pageSize]="pageSize"
+               [showFirstLastButtons]="showFirstLastButtons"
+               [hidePageSize]="hidePageSize"
+               [pageIndex]="pageIndex"
+               aria-label="Select page">
+</mat-paginator>
+  
+</section>

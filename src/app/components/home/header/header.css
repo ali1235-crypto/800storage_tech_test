@@ -1,0 +1,32 @@
+.header{
+    padding: 20px;
+    border-bottom: 1px solid black;
+    .search_input{
+        width: 70%;
+    }
+    .search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  .avatar-mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  small { color: #666; margin-left: auto; }
+  }
+  .refresh-icon{
+    animation: spin 1s linear infinite;
+    color: #b0b4ca80;
+  }
+
+  
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+

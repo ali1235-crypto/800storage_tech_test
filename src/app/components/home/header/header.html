@@ -1,0 +1,23 @@
+<section class="header">
+    <mat-form-field class="search_input" appearance="outline">
+    <mat-label>Search by User ID ...</mat-label>
+    <input matInput [formControl]="searchControl" type="number" placeholder="Ex. 1" [matAutocomplete]="auto">
+    <mat-icon matSuffix>search</mat-icon>
+
+    <mat-autocomplete #auto="matAutocomplete">
+        @if (foundUser()) {
+          <mat-option (onSelectionChange)="onUserSelected(foundUser()!)" [value]="foundUser()?.id">
+            <div class="search-result-item">
+              <img [src]="foundUser()?.avatar" class="avatar-mini">
+              <span>{{ foundUser()?.first_name }} {{ foundUser()?.last_name }}</span>
+              <small>(ID: {{ foundUser()?.id }})</small>
+            </div>
+          </mat-option>
+        }
+        @else if (isLoading()) {<mat-option><mat-icon class="refresh-icon">refresh</mat-icon></mat-option>}
+        @else if (searchControl.value && !foundUser()&&!isLoading()) {
+       <mat-option disabled>No user found</mat-option>
+    }
+      </mat-autocomplete>
+  </mat-form-field>
+</section>
